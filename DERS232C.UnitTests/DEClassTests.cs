@@ -18,7 +18,7 @@ namespace DERS232C.Tests
         public void GetDateAndTimeInformation_Default_ReturnsDatetimeString()
         {
             //Arrange
-            DEClass xPrinter = new DEClass("COM4");
+            DEClass xPrinter = new DEClass("COM3");
 
             //Act
             var xdate = xPrinter.GetDateAndTimeInformation();
@@ -28,6 +28,20 @@ namespace DERS232C.Tests
             Assert.IsTrue(DateTime.TryParseExact(xdate, "dd-MM-yy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out dDate));
 
         }
+
+        [TestMethod]
+        public void DiagnosticInformation_ReturnedStringStartsWithExpert()
+        {
+            //Arrange
+            DEClass xPrinter = new DEClass("COM3");
+
+            //Act
+            var info = xPrinter.DiagnosticInformation();
+
+            //Assert
+            Assert.IsTrue(info.StartsWith("eXpert"));
+        }
+
     }
 }
 

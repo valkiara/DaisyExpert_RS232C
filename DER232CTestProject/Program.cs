@@ -20,16 +20,17 @@ namespace DER232CTestProject
             //var x = xPrinter.PaperCut("1");
 
             //var x = xPrinter.GetTaxRates(DateTime.Now.AddYears(-2), DateTime.Now);
-            //var x = xPrinter.DiagnosticInformation();
+            var x = xPrinter.DiagnosticInformation();
             //var x = BYTEN.SetFlags(176, 3);
-            xPrinter.PrintNonFiscalText("საპ ბიზნეს 1");
+            //xPrinter.PrintNonFiscalText("საპ ბიზნეს 1");
+            //xPrinter.FDStatus();
             //for (int i = 0; i < 10; i++)
             //{
             //    xPrinter.PrintNonFiscalText("საპ ბიზნეს 1");
             //    xPrinter.GetDateAndTimeInformation();
             //    Thread.Sleep(1000);
             //}\
-            Console.WriteLine(xPrinter.GetDateAndTimeInformation() ); 
+            //Console.WriteLine(xPrinter.GetDateAndTimeInformation() ); 
             //xPrinter.PrintSystemParameters();
 
 

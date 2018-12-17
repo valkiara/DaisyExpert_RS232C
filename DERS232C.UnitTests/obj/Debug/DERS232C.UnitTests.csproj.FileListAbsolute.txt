@@ -7,3 +7,12 @@ d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C.Uni
 d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C.UnitTests\obj\Debug\DERS232C.UnitTests.csprojResolveAssemblyReference.cache
 d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C.UnitTests\obj\Debug\DERS232C.UnitTests.dll
 d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C.UnitTests\obj\Debug\DERS232C.UnitTests.pdb
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DERS232C.UnitTests\bin\Debug\DERS232C.UnitTests.dll
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DERS232C.UnitTests\bin\Debug\DERS232C.UnitTests.pdb
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DERS232C.UnitTests\bin\Debug\DERS232C.dll
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DERS232C.UnitTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DERS232C.UnitTests\bin\Debug\DERS232C.pdb
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DERS232C.UnitTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DERS232C.UnitTests\obj\Debug\DERS232C.UnitTests.csprojResolveAssemblyReference.cache
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DERS232C.UnitTests\obj\Debug\DERS232C.UnitTests.dll
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DERS232C.UnitTests\obj\Debug\DERS232C.UnitTests.pdb

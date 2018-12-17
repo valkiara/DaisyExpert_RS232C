@@ -6,3 +6,11 @@ d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DER232CTestP
 d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DER232CTestProject\obj\Debug\DER232CTestProject.csprojResolveAssemblyReference.cache
 d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DER232CTestProject\obj\Debug\DER232CTestProject.exe
 d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DER232CTestProject\obj\Debug\DER232CTestProject.pdb
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DER232CTestProject\bin\Debug\DER232CTestProject.exe.config
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DER232CTestProject\obj\Debug\DER232CTestProject.exe
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DER232CTestProject\obj\Debug\DER232CTestProject.pdb
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DER232CTestProject\bin\Debug\DER232CTestProject.exe
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DER232CTestProject\bin\Debug\DER232CTestProject.pdb
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DER232CTestProject\bin\Debug\DERS232C.dll
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DER232CTestProject\bin\Debug\DERS232C.pdb
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DER232CTestProject\obj\Debug\DER232CTestProject.csprojResolveAssemblyReference.cache

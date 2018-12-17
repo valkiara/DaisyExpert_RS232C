@@ -10,9 +10,6 @@ namespace DERS232C
 
     class StatusMessages
     {
-        
-
-
         public void GetStatusMessage(int code, int byteNum)
         {
 
