@@ -1,0 +1,8 @@
+d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DER232CTestProject\bin\Debug\DER232CTestProject.exe.config
+d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DER232CTestProject\bin\Debug\DER232CTestProject.exe
+d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DER232CTestProject\bin\Debug\DER232CTestProject.pdb
+d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DER232CTestProject\bin\Debug\DERS232C.dll
+d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DER232CTestProject\bin\Debug\DERS232C.pdb
+d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DER232CTestProject\obj\Debug\DER232CTestProject.csprojResolveAssemblyReference.cache
+d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DER232CTestProject\obj\Debug\DER232CTestProject.exe
+d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DER232CTestProject\obj\Debug\DER232CTestProject.pdb

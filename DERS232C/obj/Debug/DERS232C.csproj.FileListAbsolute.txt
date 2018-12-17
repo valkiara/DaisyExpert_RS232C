@@ -1,0 +1,5 @@
+d:\users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C\bin\Debug\DERS232C.dll
+d:\users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C\bin\Debug\DERS232C.pdb
+d:\users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C\obj\Debug\DERS232C.csprojResolveAssemblyReference.cache
+d:\users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C\obj\Debug\DERS232C.dll
+d:\users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C\obj\Debug\DERS232C.pdb

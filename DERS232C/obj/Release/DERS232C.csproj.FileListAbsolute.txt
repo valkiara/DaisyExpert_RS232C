@@ -1,0 +1,4 @@
+d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C\bin\Release\DERS232C.dll
+d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C\bin\Release\DERS232C.pdb
+d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C\obj\Release\DERS232C.dll
+d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C\obj\Release\DERS232C.pdb

@@ -1,0 +1,9 @@
+d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C.UnitTests\bin\Debug\DERS232C.UnitTests.dll
+d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C.UnitTests\bin\Debug\DERS232C.UnitTests.pdb
+d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C.UnitTests\bin\Debug\DERS232C.dll
+d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C.UnitTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C.UnitTests\bin\Debug\DERS232C.pdb
+d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C.UnitTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C.UnitTests\obj\Debug\DERS232C.UnitTests.csprojResolveAssemblyReference.cache
+d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C.UnitTests\obj\Debug\DERS232C.UnitTests.dll
+d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C.UnitTests\obj\Debug\DERS232C.UnitTests.pdb
