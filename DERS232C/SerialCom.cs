@@ -41,6 +41,7 @@ Abbreviations:
             Port.Handshake = Handshake;
             Port.DiscardNull = false;
             Port.Encoding = Encoding.Unicode;
+            Port.ReadTimeout = 500;
         }
     }
 }

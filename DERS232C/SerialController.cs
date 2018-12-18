@@ -126,7 +126,7 @@ namespace DERS232C
             char R_CMD = Convert.ToChar(Baf[3]);
             char R_ETX = Convert.ToChar(Baf[bytesToRead - 1]);
 
-            Byte[] BCCCheckX = new byte[4];
+            byte[] BCCCheckX = new byte[4];
             BCCCheckX[0] = Baf[bytesToRead - 5];
             BCCCheckX[1] = Baf[bytesToRead - 4];
             BCCCheckX[2] = Baf[bytesToRead - 3];
@@ -163,7 +163,7 @@ namespace DERS232C
                 lstB.Add(Baf[px]);
             }
 
-            List<Byte> BCCLIST = new List<byte>();
+            List<byte> BCCLIST = new List<byte>();
 
             for (int xp = px + 1; xp <= px + 6; xp++)
             {

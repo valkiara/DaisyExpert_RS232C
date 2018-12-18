@@ -2,3 +2,8 @@ d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C\bin
 d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C\bin\Release\DERS232C.pdb
 d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C\obj\Release\DERS232C.dll
 d:\Users\blatsabidze\documents\visual studio 2015\Projects\DERS232C\DERS232C\obj\Release\DERS232C.pdb
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DERS232C\bin\Release\DERS232C.dll
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DERS232C\bin\Release\DERS232C.pdb
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DERS232C\obj\Release\DERS232C.dll
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DERS232C\obj\Release\DERS232C.pdb
+C:\Users\blatsabidze\Documents\Visual Studio 2015\Projects\DaisyExpert_RS232C\DERS232C\obj\Release\DERS232C.csprojResolveAssemblyReference.cache

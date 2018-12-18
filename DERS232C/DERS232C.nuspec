@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Beka Latsabidze</authors>
+    <owners>$author$</owners>
+    <projectUrl>https://github.com/valkiara/DaisyExpert_RS232C</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Daisy Exprert Communication DLL</description>
+    <releaseNotes>version 1.0.</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>Daisy Expert</tags>
+  </metadata>
+</package>
