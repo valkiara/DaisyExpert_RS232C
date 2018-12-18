@@ -40,24 +40,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BalanceAtTheEndOfTheDay.cs" />
+    <Compile Include="Commands\BalanceAtTheEndOfTheDay.cs" />
     <Compile Include="Communicator.cs" />
     <Compile Include="DaisyExpert.cs" />
     <Compile Include="Exceptions\CorruptedMessageException.cs" />
-    <Compile Include="eXpertConstants.cs" />
-    <Compile Include="ExternalDisplayControl.cs" />
-    <Compile Include="Information.cs" />
-    <Compile Include="InitialSettings.cs" />
-    <Compile Include="Other.cs" />
-    <Compile Include="Printer.cs" />
+    <Compile Include="Models\eXpertConstants.cs" />
+    <Compile Include="Commands\ExternalDisplayControl.cs" />
+    <Compile Include="Commands\Information.cs" />
+    <Compile Include="Commands\InitialSettings.cs" />
+    <Compile Include="Commands\Other.cs" />
+    <Compile Include="Commands\Printer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reply.cs" />
-    <Compile Include="Reports.cs" />
-    <Compile Include="Sales.cs" />
+    <Compile Include="Models\Reply.cs" />
+    <Compile Include="Commands\Reports.cs" />
+    <Compile Include="Commands\Sales.cs" />
     <Compile Include="SerialCom.cs" />
-    <Compile Include="SerialController.cs" />
-    <Compile Include="StatusMessages.cs" />
+    <Compile Include="Controllers\SerialController.cs" />
+    <Compile Include="Models\StatusMessages.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
