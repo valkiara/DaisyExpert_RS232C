@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DERS232C.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO.Ports;
@@ -9,117 +10,100 @@ using System.Threading.Tasks;
 
 namespace DERS232C
 {
-    public class SerialController
+    class SerialController
     {
 
         private SerialPort Port { get; set; }
 
         private byte SOH = Convert.ToByte(Convert.ToInt32("01", 16));
-        private byte SEQ;
         private byte POST_AMBLE = Convert.ToByte(Convert.ToInt32("05", 16));
         private byte POST_AMBLE_2 = Convert.ToByte(Convert.ToInt32("04", 16));
         private byte ETX = Convert.ToByte(Convert.ToInt32("03", 16));
 
-        private byte xSEQ;
-        private byte xCMD;
-        private string xData;
+        List<BYTEN> StatusCodes;
 
         public SerialController(SerialPort xPort)
         {
             Port = xPort;
         }
-        
-
 
         /// <summary>
-        /// Senc command, gadaecema int, brdzanebis kodi da optional parameti Data
+        /// Send command, gadaecema int, brdzanebis kodi da optional parameti Data
         /// </summary>
         /// <param name="CMD"></param>
         /// <param name="Data"></param>
         /// <returns></returns>
-        public string SendCommand(byte CMD, string Data = "", byte exSEQ = 0)
+        public Reply ExecuteCMD(byte CMD, string Data = "", byte SEQ = 0)
         {
-            xCMD = CMD;
-            if (!Port.IsOpen)
+            if(!Port.IsOpen)
             {
                 Port.Open();
+                Port.DiscardInBuffer();
+                Port.DiscardOutBuffer();
             }
 
-            if (exSEQ == 0)
+            
+            string result = string.Empty;
+
+            if(SEQ == 0)
             {
                 SEQ = GetRandomNumber();
-                xSEQ = SEQ;
-            }
-            else
-            {
-                SEQ = exSEQ;
             }
 
-            Port.DiscardInBuffer();
-            Port.DiscardOutBuffer();
-            if (string.IsNullOrEmpty(Data))
-            {
-                byte[] by = Write(CMD);
-                Port.Write(by, 0, by.Length);
-            }
-            else
-            {
-                xData = Data;
-                byte[] FormASCII = Encoding.Unicode.GetBytes(Data);
+            byte[] by = PrepareCommand(CMD, SEQ, Data);
 
-                byte[] list = FormASCII.Where((value, index) => index % 2 == 0).ToArray();
-
-                byte[] by = Write(CMD, list);
-                Port.Write(by, 0, by.Length);
-            }
-
+            Port.Write(by, 0, by.Length);
 
             Thread.Sleep(500);
 
-            var x = Read(xCMD, xData);
 
-            Port.Close();
-            return x;
-        }
-
-        private string Read(byte CMD, string xData)
-        {
-
-            int SYNCount = 0;
-            byte[] Baf = new byte[Port.ReadBufferSize];
             List<byte> lstB = new List<byte>();
 
-            int bytesToRead = 0;
-            bytesToRead = Port.Read(Baf, 0, Baf.Length);
-            int readByte = Baf[0];
+            byte[] Baf = new byte[Port.ReadBufferSize];
+            int bytesToRead = Port.Read(Baf, 0, Baf.Length);
+
+            int firstByte = Baf[0];
 
 
-            while (readByte != 1)
+            if (firstByte == 21) //NAK
             {
-                if (readByte == 21) //NAK
+                ExecuteCMD(CMD, Data, SEQ);
+            }
+            else if (firstByte == 22) //SYN
+            {
+                while (firstByte  != 1)
                 {
-                    Console.WriteLine("NAK");
-                    SendCommand(xCMD, xData, SEQ);
-                }
-                else if (readByte == 22) //SYN
-                {
-                    SYNCount++;
-                    Console.WriteLine("SynCount: " + SYNCount + " Byte[0] = " + Baf[0] + " Bytes to read: " + bytesToRead);
+                    Baf = new byte[Port.ReadBufferSize];
+                    bytesToRead = Port.Read(Baf, 0, Baf.Length);
                     Thread.Sleep(60);
+
+                    firstByte = Baf[0];
                 }
-                bytesToRead = Port.Read(Baf, 0, Baf.Length);
-                readByte = Baf[0];
             }
 
 
-            Console.WriteLine("Out of While: " + " Byte[0] = " + readByte + " Bytes to read: " + bytesToRead);
-
-            if (bytesToRead < 5)
+            if (ValidateMessage(Baf, bytesToRead, SEQ, CMD, lstB))
             {
-                Port.Close();
-                return "Error: ByteCOunt is less then 5";
+                result = Encoding.UTF8.GetString(lstB.ToArray(), 0, lstB.Count);
+            }
+            else
+            {
+                throw new CorruptedMessageException();
             }
 
+            Port.Close();
+
+            return new Reply
+            {
+                Result = result,
+                StatusCodes = StatusCodes
+            };
+        }
+
+
+
+        internal bool ValidateMessage(byte[] Baf, int bytesToRead, byte SEQ, byte CMD, List<byte> lstB)
+        {
             char R_SOH = Convert.ToChar(Baf[0]);
             char R_LEN = Convert.ToChar(Baf[1]);
             char R_SEQ = Convert.ToChar(Baf[2]);
@@ -132,33 +116,11 @@ namespace DERS232C
             BCCCheckX[2] = Baf[bytesToRead - 3];
             BCCCheckX[3] = Baf[bytesToRead - 2];
 
-            if (R_SEQ != xSEQ)
-            {
-                //TODO:
-                Console.WriteLine("Error: Sent REQ does not match REQ");
-                return "Error: Sent REQ does not match REQ";
-            }
-            if (R_CMD != xCMD)
-            {
-                //TODO:
-                Console.WriteLine("Error: Sent CMD does not match CMD");
-                return "Error: Sent CMD does not match CMD";
-            }
-            if (R_ETX != 3)
-            {
-                //TODO:
-                Port.Close();
-                Console.WriteLine("NOT ETX!");
-                return "Error: NOT ETX!";
-            }
-
-            //SendCommand(xCMD, xData, SEQ);
-
             int px;
 
             for (px = 4; px <= 200 + 4; px++)
             {
-                if (Baf[px] == 0x4)
+                if(Baf[px] == 0x4)
                     break; // TODO: might not be correct. Was : Exit For
                 lstB.Add(Baf[px]);
             }
@@ -167,49 +129,53 @@ namespace DERS232C
 
             for (int xp = px + 1; xp <= px + 6; xp++)
             {
-                if (Baf[xp] == 0x5)
-                    break; // TODO: might not be correct. Was : Exit For
+                if(Baf[xp] == 0x5)
+                   break; // TODO: might not be correct. Was : Exit For
                 BCCLIST.Add((Baf[xp]));
             }
 
             if (!CheckBCC(lstB.ToArray(), BCCLIST.ToArray(), R_LEN, R_CMD, R_SEQ, BCCCheckX))
             {
-                //TODO:
-                //return "Error: Sent CMD does not match CMD";
-                Console.WriteLine("Error: BCC check failed!!!!");
-                
-                return "Error: BCC check failed!";
-                // SendCommand(xCMD, xData, SEQ);
+                return false;
+            }
+          
+
+            if (R_SEQ != SEQ || R_CMD != CMD || R_ETX != 3)
+            {
+                return false;
             }
             else
             {
-                Console.WriteLine("BCC Check: True;");
+                StatusCodes = new List<BYTEN>();
+                for (int i = 1; i < BCCLIST.Count + 1; i++)
+                {
+                    StatusCodes.Add(BYTEN.SetFlags(BCCLIST[i - 1], i - 1));
+                }
+
+                return true;
             }
-
-            List<BYTEN> statusCodes = new List<BYTEN>();
-            for (int i = 1; i < BCCLIST.Count + 1; i++)
-            {
-                statusCodes.Add(BYTEN.SetFlags(BCCLIST[i - 1], i - 1));
-            }
-
-
-           
-            string st = "";
-            foreach (byte bb in lstB)
-            {
-                st = st + Convert.ToChar(bb);
-            }
-
-            string converted = Encoding.UTF8.GetString(lstB.ToArray(), 0, lstB.Count);
-            Debug.WriteLine("Conveted: " + converted + " SYNCOunt: ");
-            //Console.WriteLine("Conveted: " + converted + " SYNCOunt: ");
-
-            return converted;
-
         }
 
+        internal byte[] PrepareCommand(byte CMD, byte SEQ, string Data = "")
+        {
+            byte[] by;
 
-        private byte GetRandomNumber(double minimum = 32, double maximum = 255)
+            if (string.IsNullOrEmpty(Data))
+            {
+                by = Write(CMD, SEQ);
+            }
+            else
+            {
+                byte[] FormASCII = Encoding.Unicode.GetBytes(Data);
+                byte[] list = FormASCII.Where((value, index) => index % 2 == 0).ToArray();
+                by = Write(CMD, SEQ, list);
+            }
+
+            return by;
+        }
+       
+
+        internal byte GetRandomNumber(double minimum = 32, double maximum = 255)
         {
             Random random = new Random();
             var x = random.NextDouble() * (maximum - minimum) + minimum;
@@ -217,28 +183,25 @@ namespace DERS232C
         }
 
         //BCC check. control sum(0000h-FFFFh). Sum of data bytes from position 2 to position 6. The control sum is transferred in ASCІІ type (12АВ is transferred as 31h 32h 3Аh 3Вh).
-        private bool CheckBCC(byte[] DATA, byte[] BCCLst, int LEN, int SEQ, int CMD, Byte[] BCCCheckX)
+        private bool CheckBCC(byte[] DATA, byte[] BCCLst, int LEN, int SEQ, int CMD, byte[] BCCCheckX)
         {
-
-            Byte[] By = new Byte[4];
+            byte[] By = new byte[4];
 
             int bCal = 0;
 
-            foreach (Byte bb in DATA)
+            foreach (byte bb in DATA)
             {
                 bCal += bb;
             }
 
             int BCCCal = 0;
-            foreach (Byte bb in BCCLst)
+            foreach (byte bb in BCCLst)
             {
                 BCCCal += bb;
             }
 
 
             int V_Int = LEN + SEQ + POST_AMBLE + CMD + bCal + POST_AMBLE_2 + BCCCal;
-
-
 
             string reString = GetBCCStrHex(V_Int);
 
@@ -250,14 +213,13 @@ namespace DERS232C
             return By.SequenceEqual(BCCCheckX);
         }
 
-
         /// <summary>
         /// Write, amzadebs brdzanebas gasagzavnad
         /// </summary>
         /// <param name="CMD"></param>
         /// <param name="DATA"></param>
         /// <returns></returns>
-        private Byte[] Write(Byte CMD, Byte[] DATA = null)
+        private byte[] Write(byte CMD, byte SEQ, byte[] DATA = null)
         {
             byte LEN;
             #region if
@@ -266,7 +228,7 @@ namespace DERS232C
 
                 LEN = Convert.ToByte(Convert.ToByte(Convert.ToInt32("04", 16) + Convert.ToInt32("20", 16)));
 
-                Byte[] By = new Byte[10];
+                byte[] By = new byte[10];
                 By[0] = SOH;
                 By[1] = LEN;
                 By[2] = SEQ;
@@ -294,7 +256,7 @@ namespace DERS232C
                 string ForLen = (DATA.Length + 4 + 32).ToString();
                 LEN = Convert.ToByte(Convert.ToByte(ForLen));
 
-                Byte[] By = new Byte[10 + DATA.Length];
+                byte[] By = new byte[10 + DATA.Length];
 
                 By[0] = SOH;
                 By[1] = LEN;
@@ -304,7 +266,7 @@ namespace DERS232C
                 int II = 4;
                 int bCal = 0;
 
-                foreach (Byte bb in DATA)
+                foreach (byte bb in DATA)
                 {
                     By[II] = bb;
                     bCal += bb;

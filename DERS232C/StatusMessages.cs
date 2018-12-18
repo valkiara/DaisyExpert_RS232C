@@ -8,7 +8,7 @@ namespace DERS232C
 {
 
 
-    class StatusMessages
+    public class StatusMessages
     {
         public void GetStatusMessage(int code, int byteNum)
         {
@@ -27,7 +27,7 @@ namespace DERS232C
         }
     }
 
-    class StatusFlag
+    public class StatusFlag
     {
         public byte BYTENO { get; set; }
         public string  GeneralFunction{ get; set; }

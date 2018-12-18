@@ -25,7 +25,7 @@ Abbreviations:
     MRC Machine Registration Code
     TIN Tax Identification Number
 */
-    public class SerialCom
+    class SerialCom
     {
        
         public SerialPort Port { get; set; }

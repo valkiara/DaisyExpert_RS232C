@@ -18,14 +18,14 @@ namespace DERS232C.Tests
         public void GetDateAndTimeInformation_Default_ReturnsDatetimeString()
         {
             //Arrange
-            DEClass xPrinter = new DEClass("COM3");
+            DaisyExpert xPrinter = new DaisyExpert("COM3");
 
             //Act
-            var xdate = xPrinter.GetDateAndTimeInformation();
+            var xdate = xPrinter.Information.GetDateAndTimeInformation();
 
             //Assert
             DateTime dDate;
-            Assert.IsTrue(DateTime.TryParseExact(xdate, "dd-MM-yy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out dDate));
+            Assert.IsTrue(DateTime.TryParseExact(xdate.Result, "dd-MM-yy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out dDate));
 
         }
 
@@ -33,13 +33,13 @@ namespace DERS232C.Tests
         public void DiagnosticInformation_ReturnedStringStartsWithExpert()
         {
             //Arrange
-            DEClass xPrinter = new DEClass("COM3");
+            DaisyExpert xPrinter = new DaisyExpert("COM3");
 
             //Act
-            var info = xPrinter.DiagnosticInformation();
+            var info = xPrinter.Information.DiagnosticInformation();
 
             //Assert
-            Assert.IsTrue(info.StartsWith("eXpert"));
+            Assert.IsTrue(info.Result.StartsWith("eXpert"));
         }
 
     }

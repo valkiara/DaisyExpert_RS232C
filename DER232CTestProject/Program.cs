@@ -13,12 +13,15 @@ namespace DER232CTestProject
     {
         static void Main(string[] args)
         {
-            DEClass xPrinter = new DEClass("COM3");
+            DaisyExpert xPrinter = new DaisyExpert("COM3");
+            //Sales Sale = new Sales("COM3");
 
-            xPrinter.StartOfNonFiscalReceipt();
-            xPrinter.PrintNonFiscalText("glea");
-            var aa = xPrinter.EndOfNonFiscalReceipt();
+            xPrinter.Sales.StartOfNonFiscalReceipt();
+            xPrinter.Sales.PrintNonFiscalText("glea");
+            var aa = xPrinter.Sales.EndOfNonFiscalReceipt();
 
+            var aaa = xPrinter.Information.GetDateAndTimeInformation();
+            //xPrinter.GetDateAndTimeInformation();
 
         }
     }
