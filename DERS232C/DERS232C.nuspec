@@ -1,15 +1,17 @@
-<?xml version="1.0"?>
-<package >
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>$id$</id>
-    <version>$version$</version>
+    <version>1.0.1</version>
     <title>$title$</title>
-    <authors>Beka Latsabidze</authors>
+    <authors>$author$</authors>
     <owners>$author$</owners>
-    <projectUrl>https://github.com/valkiara/DaisyExpert_RS232C</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Daisy Exprert Communication DLL</description>
-    <releaseNotes>version 1.0.</releaseNotes>
+    <licenseUrl>http://license_url_here_or_delete_this_line/</licenseUrl>
+    <projectUrl>http://project_url_here_or_delete_this_line/</projectUrl>
+    <iconUrl>http://icon_url_here_or_delete_this_line/</iconUrl>
+    <description>Daisy Expert DLL</description>
+    <releaseNotes>Version 1.0.1</releaseNotes>
     <copyright>Copyright 2018</copyright>
     <tags>Daisy Expert</tags>
   </metadata>
